@@ -1,0 +1,9 @@
+[Unit]
+Description=Run Locate Home daily and on boot
+
+[Timer]
+OnBootSec=15min
+OnCalendar=daily
+
+[Install]
+WantedBy=timers.target

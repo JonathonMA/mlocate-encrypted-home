@@ -1,0 +1,11 @@
+[Unit]
+Description=Locate Home
+
+[Service]
+Type=oneshot
+# TODO: "${XDG_CACHE_HOME:-$HOME/.cache}/locate/mlocate.db" is more correct
+ExecStartPre=/bin/mkdir -p %h/.cache/locate
+ExecStart=/usr/bin/updatedb -l 0 -o %h/.cache/locate/mlocate.db -U %h
+
+[Install]
+WantedBy=default.target
